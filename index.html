@@ -7,45 +7,49 @@
     <link rel="stylesheet" href="static/css/style.css">
   </head>
   <body ng-controller="WeatherListController">
-    <div id="slider">
-      <div class="item transition-05 {{city.className}}" ng-repeat="city in cities" style="background-image: url(http://l.yimg.com/os/mit/media/m/weather/images/icons/bkgnd/{{city.item.condition.code}}{{city.daynight}}-791140.jpg);">
-        <div class="condition">
-          <h2>{{city.location.country}}, {{city.location.city}}</h2>
-          <span class="temperature" style="background-image: url(http://l.yimg.com/os/mit/media/m/weather/images/icons/l/{{city.item.condition.code}}{{city.daynight}}-100567.png);">
-            <span class="unit">{{city.units.temperature}}</span>
-            <span class="value">{{city.item.condition.temp}}</span>
-            <span class="text">{{city.item.condition.text}}</span>
-          </span>
-          <a href="{{city.link}}" title="View on yahoo" target="_blank" rel="nofollow">{{city.title}}</a>
-        </div>
-        <div class="forecast">
-          <h3>Forecast</h3>
-          <div ng-repeat="forecast in city.item.forecast">
-            <h4>{{forecast.date}}</h4>
-            <span class="day">{{forecast.day}}</span>
-            <img src="http://l.yimg.com/os/mit/media/m/weather/images/icons/l/{{forecast.code}}{{city.daynight}}-100567.png" />
-            <span class="temperature">
-              <span class="value">{{forecast.low}}</span>
+    <div class="container">
+      <div id="slider">
+        <div class="item transition-05 {{city.className}}" ng-repeat="city in cities" style="background-image: url(http://l.yimg.com/os/mit/media/m/weather/images/icons/bkgnd/{{city.item.condition.code}}{{city.daynight}}-791140.jpg);">
+          <div class="condition">
+            <h2>{{city.location.country}}, {{city.location.city}}</h2>
+            <span class="temperature" style="background-image: url(http://l.yimg.com/os/mit/media/m/weather/images/icons/l/{{city.item.condition.code}}{{city.daynight}}-100567.png);">
               <span class="unit">{{city.units.temperature}}</span>
-              <span class="delimiter"></span>
-              <span class="value">{{forecast.high}}</span>
-              <span class="unit">{{city.units.temperature}}</span>
+              <span class="value">{{city.item.condition.temp}}</span>
+              <span class="text">{{city.item.condition.text}}</span>
             </span>
-            <span class="text">{{forecast.text}}</span>
+            <a href="{{city.link}}" title="View on yahoo" target="_blank" rel="nofollow">{{city.title}}</a>
+          </div>
+          <div class="forecast">
+            <h3>Forecast</h3>
+            <div ng-repeat="forecast in city.item.forecast">
+              <h4>{{forecast.date}}</h4>
+              <span class="day">{{forecast.day}}</span>
+              <img src="http://l.yimg.com/os/mit/media/m/weather/images/icons/l/{{forecast.code}}{{city.daynight}}-100567.png" />
+              <span class="temperature">
+                <span class="value">{{forecast.low}}</span>
+                <span class="unit">{{city.units.temperature}}</span>
+                <span class="delimiter"></span>
+                <span class="value">{{forecast.high}}</span>
+                <span class="unit">{{city.units.temperature}}</span>
+              </span>
+              <span class="text">{{forecast.text}}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div id="counter">
-      <div ng-repeat="city in cities" class="{{city.className}}">
-        <img src="http://l.yimg.com/os/mit/media/m/weather/images/icons/l/{{city.item.condition.code}}{{city.daynight}}-100567.png" />
-        <span class="name">{{city.location.city}}</span>
-        <span class="temperature">
-          <span class="value">{{city.item.condition.temp}}</span>
-          <span class="unit">{{city.units.temperature}}</span>
-        </span>
-        <span class="text">{{city.item.condition.text}}</span>
+      <div id="counter">
+        <div ng-repeat="city in cities" class="{{city.className}}">
+          <img src="http://l.yimg.com/os/mit/media/m/weather/images/icons/l/{{city.item.condition.code}}{{city.daynight}}-100567.png" />
+          <span class="name">{{city.location.city}}</span>
+          <span class="temperature">
+            <span class="value">{{city.item.condition.temp}}</span>
+            <span class="unit">{{city.units.temperature}}</span>
+          </span>
+          <span class="text">{{city.item.condition.text}}</span>
+        </div>
       </div>
+      <div id="arrow-prev">‹</div>
+      <div id="arrow-next">›</div>
     </div>
   </body>
 </html>
